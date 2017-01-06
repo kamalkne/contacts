@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script type="text/javascript" src="vcfReader.js"></script>
+</head>
+
+<body ng-app="vcfReader">
+    <div ng-controller="vcfCtrl" class="col-xs-12" style="margin-top: 25px;">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        <div>
+                            <input type="text" placeholder="NAME" class="textbox" ng-model="name">
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <input type="text" placeholder="NUMBER" class="textbox" ng-model="number">
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <input type="text" placeholder="EMAIL" class="textbox" ng-model="email">
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <input type="text" placeholder="ADDRESS" class="textbox" ng-model="addr">
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <input type="text" placeholder="BDAY" class="textbox" ng-model="bday">
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="c in contact | filter: name | filter: number
+                                   | filter: email | filter: addr
+                                   | filter: bday">
+                    <td>{{ c.fullname }}</td>
+                    <td>
+                        <div ng-repeat="n in c.phone">
+                            <a href="tel:{{n.value}}">{{ n.value }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-repeat="e in c.email">
+                            <a href="mailto:{{ e.value }}">{{ e.value }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-repeat="a in c.addr">{{ a.value }}</div>
+                    </td>
+                    <td>{{ c.bday }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

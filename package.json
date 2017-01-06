@@ -1,0 +1,19 @@
+{
+  "name": "vcf-parser",
+  "version": "1.0.0",
+  "description": "Reads vcf file and processes contacts information",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "vcf",
+    "parser",
+    "contact"
+  ],
+  "author": "Kamal Kokne",
+  "license": "ISC",
+  "dependencies": {
+    "vcard-json": "^0.5.1"
+  }
+}
