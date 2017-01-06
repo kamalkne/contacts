@@ -7,6 +7,10 @@
 </head>
 
 <body ng-app="vcfReader">
+    <form method='post' action='http://localhost:8080/postvcf' enctype="multipart/form-data">
+        <input type='file' name='fileUploaded'>
+        <input type='submit'>
+    </form>
     <div ng-controller="vcfCtrl" class="col-xs-12" style="margin-top: 25px;">
         <table class="table table-striped table-bordered">
             <thead>
